@@ -1,0 +1,22 @@
+{
+  "parserClassName": "org.apache.metron.parsers.csv.CSVParser",
+  "sensorTopic": "geohash",
+  "parserConfig": {
+    "columns": {
+      "user": 0,
+      "ip": 1,
+      "timestamp": 2
+    }
+  },
+  "fieldTransformations": [
+    {
+      "transformation": "STELLAR",
+      "output": [
+        "hash"
+      ],
+      "config": {
+        "hash": "GEOHASH_FROM_LOC(GEO_GET(ip))"
+      }
+    }
+  ]
+}

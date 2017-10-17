@@ -1,0 +1,15 @@
+{
+  "parserClassName": "org.apache.metron.parsers.json.JSONMapParser",
+  "sensorTopic": "cowrie",
+  "fieldTransformations": [
+    {
+      "transformation": "STELLAR",
+      "output": [
+        "timestamp"
+      ],
+      "config": {
+        "timestamp": "TO_EPOCH_TIMESTAMP( timestamp, 'yyyy-MM-dd\\'T\\'HH:mm:ss.SSS')"
+      }
+    }
+  ]
+}

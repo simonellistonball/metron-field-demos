@@ -1,0 +1,21 @@
+{
+  "parserConfig": {},
+  "fieldTransformations": [
+    {
+      "input": [],
+      "output": [
+        "user",
+        "success",
+        "is_system_user"
+      ],
+      "transformation": "STELLAR",
+      "config": {
+        "user": "GET_FIRST(SPLIT(source_user, '@'))",
+        "success": "success == 'Success'",
+        "is_system_user": "STARTS_WITH(user, 'C')"
+      }
+    }
+  ],
+  "sensorTopic": "auth",
+  "parserClassName": "org.apache.metron.parsers.json.JSONMapParser"
+}

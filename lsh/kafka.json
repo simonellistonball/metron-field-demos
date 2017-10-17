@@ -1,0 +1,6 @@
+{
+  "name": "cowrie",
+  "numPartitions": 1,
+  "properties": {},
+  "replicationFactor": 1
+}

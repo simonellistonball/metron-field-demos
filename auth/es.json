@@ -1,0 +1,196 @@
+{
+  "template": "auth_index_*",
+  "mappings": {
+    "auth_doc": {
+      "dynamic_templates": [
+        {
+          "threat_triage_score": {
+            "mapping": {
+              "type": "float"
+            },
+            "match": "threat.triage.rules:*:score",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "threat_triage_reason": {
+            "mapping": {
+              "type": "string"
+            },
+            "match": "threat.triage.rules:*:reason",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "threat_triage_name": {
+            "mapping": {
+              "type": "string"
+            },
+            "match": "threat.triage.rules:*:name",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "geo_location_point": {
+            "mapping": {
+              "type": "geo_point"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:location_point"
+          }
+        },
+        {
+          "geo_country": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:country"
+          }
+        },
+        {
+          "geo_city": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:city"
+          }
+        },
+        {
+          "geo_location_id": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:locID"
+          }
+        },
+        {
+          "geo_dma_code": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:dmaCode"
+          }
+        },
+        {
+          "geo_postal_code": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:postalCode"
+          }
+        },
+        {
+          "geo_latitude": {
+            "mapping": {
+              "type": "float"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:latitude"
+          }
+        },
+        {
+          "geo_longitude": {
+            "mapping": {
+              "type": "float"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:longitude"
+          }
+        },
+        {
+          "timestamps": {
+            "mapping": {
+              "format": "epoch_millis",
+              "type": "date"
+            },
+            "match_mapping_type": "*",
+            "match": "*:ts"
+          }
+        }
+      ],
+      "properties": {
+        "auth_orientation": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "auth_type": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "dest_user": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "distinct_auth_attempts_alert": {
+          "type": "boolean"
+        },
+        "guid": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "ip_dst_host": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "ip_src_host": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "is_regular_user": {
+          "type": "boolean"
+        },
+        "is_system_user": {
+          "type": "boolean"
+        },
+        "logon_type": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "num_alerts_previous": {
+          "type": "long"
+        },
+        "original_string": {
+          "type": "string"
+        },
+        "source:type": {
+          "type": "string"
+        },
+        "source_file": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "source_user": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "time_offset": {
+          "type": "long"
+        },
+        "timestamp": {
+          "format": "epoch_millis",
+          "type": "date"
+        },
+        "user": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "alert": {
+          "type": "nested"
+        }
+      }
+    }
+  }
+}

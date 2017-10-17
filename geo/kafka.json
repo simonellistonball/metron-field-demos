@@ -1,0 +1,6 @@
+{
+  "name": "geohash",
+  "numPartitions": 1,
+  "properties": {},
+  "replicationFactor": 1
+}

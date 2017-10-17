@@ -1,0 +1,222 @@
+{
+  "template": "cowrie_index_*",
+  "mappings": {
+    "cowrie_doc": {
+      "dynamic_templates": [
+        {
+          "threat_triage_score": {
+            "mapping": {
+              "type": "float"
+            },
+            "match": "threat.triage.rules:*:score",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "threat_triage_reason": {
+            "mapping": {
+              "type": "string"
+            },
+            "match": "threat.triage.rules:*:reason",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "threat_triage_name": {
+            "mapping": {
+              "type": "string"
+            },
+            "match": "threat.triage.rules:*:name",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "geo_location_point": {
+            "mapping": {
+              "type": "geo_point"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:location_point"
+          }
+        },
+        {
+          "geo_country": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:country"
+          }
+        },
+        {
+          "geo_city": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:city"
+          }
+        },
+        {
+          "geo_location_id": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:locID"
+          }
+        },
+        {
+          "geo_dma_code": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:dmaCode"
+          }
+        },
+        {
+          "geo_postal_code": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:postalCode"
+          }
+        },
+        {
+          "geo_latitude": {
+            "mapping": {
+              "type": "float"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:latitude"
+          }
+        },
+        {
+          "geo_longitude": {
+            "mapping": {
+              "type": "float"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:longitude"
+          }
+        },
+        {
+          "timestamps": {
+            "mapping": {
+              "format": "epoch_millis",
+              "type": "date"
+            },
+            "match_mapping_type": "*",
+            "match": "*:ts"
+          }
+        }
+      ],
+      "properties": {
+        "blacklisted": {
+          "type": "boolean"
+        },
+        "compCS": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        },
+        "dst_ip": {
+          "type": "string"
+        },
+        "dst_port": {
+          "type": "long"
+        },
+        "duration": {
+          "type": "double"
+        },
+        "encCS": {
+          "type": "string"
+        },
+        "eventid": {
+          "type": "string"
+        },
+        "guid": {
+          "type": "string"
+        },
+        "input": {
+          "type": "string"
+        },
+        "isError": {
+          "type": "long"
+        },
+        "is_alert": {
+          "type": "string"
+        },
+        "kexAlgs": {
+          "type": "string"
+        },
+        "keyAlgs": {
+          "type": "string"
+        },
+        "macCS": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "original_string": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "sensor": {
+          "type": "string"
+        },
+        "session": {
+          "type": "string"
+        },
+        "similarity_bin": {
+          "type": "string"
+        },
+        "size": {
+          "type": "long"
+        },
+        "source:type": {
+          "type": "string"
+        },
+        "src_ip": {
+          "type": "string"
+        },
+        "src_port": {
+          "type": "long"
+        },
+        "system": {
+          "type": "string"
+        },        
+        "timestamp": {
+          "format": "epoch_millis",
+          "type": "date"
+        },
+        "tlsh": {
+          "type": "string"
+        },
+        "ttylog": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "alert": {
+          "type": "nested"
+        }
+      }
+    }
+  }
+}

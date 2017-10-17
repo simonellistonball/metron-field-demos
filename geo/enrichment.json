@@ -1,0 +1,44 @@
+{
+  "enrichment": {
+    "fieldMap": {
+      "stellar" : {
+        "config" : [
+          "geo_locations := MULTISET_MERGE( PROFILE_GET( 'locations_by_user', user, PROFILE_FIXED( 2, 'MINUTES')))",
+          "geo_centroid := GEOHASH_CENTROID(geo_locations)",
+          "geo_distance := TO_INTEGER(GEOHASH_DIST(geo_centroid, hash))",
+          "geo_locations := null"
+        ]
+      }
+    }
+  ,"fieldToTypeMap": { }
+  },
+  "threatIntel": {
+    "fieldMap": {
+      "stellar" : {
+        "config" : [
+          "geo_distance_distr:= STATS_MERGE( PROFILE_GET( 'geo_distribution_from_centroid', 'global', PROFILE_FIXED( 2, 'MINUTES')))",
+          "dist_median := STATS_PERCENTILE(geo_distance_distr, 50.0)",
+          "dist_sd := STATS_SD(geo_distance_distr)",
+          "geo_outlier := ABS(dist_median - geo_distance) >= 5*dist_sd",
+          "is_alert := exists(is_alert) && is_alert",
+          "is_alert := is_alert || (geo_outlier != null && geo_outlier == true)",
+          "geo_distance_distr := null"
+        ]
+      }
+
+    },
+    "fieldToTypeMap": { },
+    "triageConfig" : {
+      "riskLevelRules" : [
+        {
+          "name" : "Geographic Outlier",
+          "comment" : "Determine if the user's geographic distance from the centroid of the historic logins is an outlier as compared to all users.",
+          "rule" : "geo_outlier != null && geo_outlier",
+          "score" : 10,
+          "reason" : "FORMAT('user %s has a distance (%d) from the centroid of their last login is 5 std deviations (%f) from the median (%f)', user, geo_distance, dist_sd, dist_median)"
+        }
+      ],
+      "aggregator" : "MAX"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "enrichment": {
+    "fieldMap": {
+      "stellar" : {
+        "config" : [
+          "characteristic_rep := JOIN([ 'message', exists(message)?message:'', 'input', exists(input)?input:'', 'isError', exists(isError)?isError:''], '|')",
+          "forensic_hashes := HASH(characteristic_rep, 'tlsh', { 'hashes' : 16, 'bucketSize' : 128 })",
+          "similarity_bin := MAP_GET('tlsh_bin', forensic_hashes)",
+          "tlsh := MAP_GET('tlsh', forensic_hashes)",
+          "forensic_hashes := null",
+          "characteristic_rep := null"
+        ]
+      }
+   }
+  ,"fieldToTypeMap": { }
+  },
+  "threatIntel": {
+    "fieldMap": {
+      "stellar" : {
+        "config" : [
+          "blacklisted := ENRICHMENT_EXISTS( 'blacklist', src_ip, 'threatintel', 't')",
+          "is_alert := (exists(is_alert) && is_alert) || blacklisted"
+        ]
+      }
+    },
+    "fieldToTypeMap": { },
+    "triageConfig" : {
+      "riskLevelRules" : [
+        {
+          "name" : "Blacklisted Host",
+          "comment" : "Determine if a host is blacklisted",
+          "rule" : "blacklisted != null && blacklisted",
+          "score" : 10,
+          "reason" : "FORMAT('IP %s is blacklisted', src_ip)"
+        }
+      ],
+      "aggregator" : "MAX"
+    }
+  }
+}
