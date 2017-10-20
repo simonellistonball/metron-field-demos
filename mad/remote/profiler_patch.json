@@ -1,0 +1,1 @@
+[{"path": "/profiles/-", "value": {"profile": "sketchy_mad", "onlyif": "true", "update": {"s": "OUTLIER_MAD_ADD(s, value)"}, "init": {"s": "OUTLIER_MAD_STATE_MERGE(PROFILE_GET('sketchy_mad','global', PROFILE_FIXED(5, 'MINUTES')))"}, "foreach": "'global'", "result": "s"}, "op": "add"}]

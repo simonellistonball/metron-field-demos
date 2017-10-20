@@ -5,7 +5,10 @@ Each demo is fully packages and can be installed with load-name.sh in each demo 
 The demo scripts use the Metron REST API to install configuration for each element of the use case. They also update elastic templates, and install any data generators in relevant paths under the path of the standard ssh user on the cluster (what you get if you just ssh without user)
 
 TODO - There will be a demo script with each folder.
-TODO - Currently demos cannot modify profile configuration, so demos involving profiles require some manual setup
+
+~TODO - Currently demos cannot modify profile configuration, so demos involving profiles require some manual setup~
+
+Profile modification is now possible. The load scripts take the profiler.json files and convert them to JSON patch files which are then run via zk_load_config in the bootstrap script. Note that this is not idempotent, so you may end up with multiple instances of a profile. 
 
 The key locations should be in environment: 
 
