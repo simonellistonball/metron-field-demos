@@ -1,7 +1,7 @@
 {
-  "template": "auth_index_*",
+  "template": "geohash_index_*",
   "mappings": {
-    "auth_doc": {
+    "geohash_doc": {
       "dynamic_templates": [
         {
           "threat_triage_score": {
@@ -119,70 +119,15 @@
         }
       ],
       "properties": {
-        "auth_orientation": {
-          "type": "string"
-        },
-        "auth_type": {
-          "index": "not_analyzed",
-          "type": "string"
-        },
-        "dest_user": {
-          "index": "not_analyzed",
-          "type": "string"
-        },
-        "distinct_auth_attempts_alert": {
-          "type": "boolean"
-        },
-        "guid": {
-          "index": "not_analyzed",
-          "type": "string"
-        },
-        "ip_dst_addr": {
-          "type": "string"
-        },
-        "ip_src_addr": {
-          "type": "string"
-        },
-        "is_regular_user": {
-          "type": "boolean"
-        },
-        "is_system_user": {
-          "type": "boolean"
-        },
-        "logon_type": {
-          "type": "string"
-        },
-        "num_alerts_previous": {
-          "type": "long"
-        },
-        "original_string": {
-          "type": "string"
-        },
-        "source:type": {
-          "type": "string"
-        },
-        "source_file": {
-          "index": "not_analyzed",
-          "type": "string"
-        },
-        "source_user": {
-          "index": "not_analyzed",
-          "type": "string"
-        },
-        "success": {
-          "type": "boolean"
-        },
-        "time_offset": {
-          "type": "long"
-        },
         "timestamp": {
           "format": "epoch_millis",
           "type": "date"
         },
-        "user": {
+        "source:type": {
           "index": "not_analyzed",
           "type": "string"
-        }
+        },
+        "alert": { "type": "nested" }
       }
     }
   }

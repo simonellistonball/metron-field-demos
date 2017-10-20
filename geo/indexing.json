@@ -2,16 +2,16 @@
   "hdfs": {
     "batchSize": 5,
     "enabled": true,
-    "index": "auth"
+    "index": "geohash"
   },
   "elasticsearch": {
     "batchSize": 5,
     "enabled": true,
-    "index": "auth"
+    "index": "geohash"
   },
   "solr": {
     "batchSize": 5,
     "enabled": true,
-    "index": "auth"
+    "index": "geohash"
   }
 }

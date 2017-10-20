@@ -13,7 +13,7 @@ def main():
   freq_s = 1
   while True:
     user='user' + str(random.randint(1,len(domains)))
-    epoch_time = int(time.time())
+    epoch_time = int(time.time()) * 1000
     ip=get_ip(domains[user])
     print user + ',' + ip + ',' + str(epoch_time)
     sys.stdout.flush()
