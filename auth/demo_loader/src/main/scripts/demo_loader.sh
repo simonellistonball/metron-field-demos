@@ -27,11 +27,12 @@ elif [ -e /usr/lib/bigtop-utils/bigtop-detect-javahome ]; then
   . /usr/lib/bigtop-utils/bigtop-detect-javahome
 fi
 
-
 source /etc/default/metron
 
 export CLASSNAME="com.hortonworks.metron.loader.csv.DemoLoader"
-export DM_JAR=metron-data-management-$METRON_VERSION.jar
+export DM_JAR=$(ls /usr/hcp/current/metron/lib/metron-data-management-*.jar)
+export DL_JAR=$(ls $HOME/auth/demo-loader-*.jar)
+CP="$DM_JAR:$DL_JAR"
+echo $CP
 
-CP="$METRON_HOME/lib/$DM_JAR:$HOME/auth/demo-loader-$METRON_VERSION.jar"
 java $METRON_JVMFLAGS -cp $CP $CLASSNAME "$@"
