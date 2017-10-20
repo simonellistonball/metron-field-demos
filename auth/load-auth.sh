@@ -17,6 +17,9 @@ pushd demo_loader
 mvn clean package -T2C && cp target/*.jar ../remote/
 popd
 
+# create the patch for the profiler config 
+cat profiler.json | python ../profiler_patch.py > remote/profiler_patch.json
+
 echo "\nUpload sample data"
 ssh ${METRON_HOST} mkdir auth
 rsync -zre ssh remote/ ${METRON_HOST}:auth/

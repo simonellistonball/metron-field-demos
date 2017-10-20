@@ -1,0 +1,16 @@
+{
+  "profiles": [
+    {
+      "profile": "sketchy_mad",
+      "foreach": "'global'",
+      "onlyif": "true",
+      "init": {
+        "s": "OUTLIER_MAD_STATE_MERGE(PROFILE_GET('sketchy_mad','global', PROFILE_FIXED(5, 'MINUTES')))"
+      },
+      "update": {
+        "s": "OUTLIER_MAD_ADD(s, value)"
+      },
+      "result": "s"
+    }
+  ]
+}

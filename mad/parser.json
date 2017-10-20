@@ -1,0 +1,20 @@
+{
+  "parserClassName": "org.apache.metron.parsers.csv.CSVParser",
+  "sensorTopic": "mad",
+  "parserConfig": {
+    "columns": {
+      "value_str": 0
+    }
+  },
+  "fieldTransformations": [
+    {
+      "transformation": "STELLAR",
+      "output": [
+        "value"
+      ],
+      "config": {
+        "value": "TO_DOUBLE(value_str)"
+      }
+    }
+  ]
+}
