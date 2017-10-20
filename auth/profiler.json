@@ -3,12 +3,12 @@
     {
       "profile": "distinct_auth_attempts_by_user",
       "foreach": "user",
-      "onlyif": "source.type == 'auth' && auth_orientation != null && auth_orientation == 'LogOn' && user != null && LENGTH(user) > 0 && ip_dst_addr != null && ip_dst_addr != '?'",
+      "onlyif": "source.type == 'auth' && auth_orientation != null && auth_orientation == 'LogOn' && user != null && LENGTH(user) > 0 && ip_dst_host != null && ip_dst_host != '?'",
       "init": {
         "total": "HLLP_INIT(5,6)"
       },
       "update": {
-        "total": "HLLP_ADD(total, ip_dst_addr)"
+        "total": "HLLP_ADD(total, ip_dst_host)"
       },
       "result": {
         "profile": "total",

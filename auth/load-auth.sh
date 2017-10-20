@@ -25,4 +25,3 @@ ssh ${METRON_HOST} '~/auth/bootstrap.sh'
 
 # do a run for Fun
 curl -u admin:admin ${REST_URL}/api/v1/storm/parser/start/auth 
-ssh ${METRON_HOST} '~/auth/load_data.sh'
