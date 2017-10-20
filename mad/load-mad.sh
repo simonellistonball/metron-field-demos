@@ -18,7 +18,7 @@ cat profiler.json | python ../profiler_patch.py > remote/profiler_patch.json
 echo "\nUpload sample data"
 ssh ${METRON_HOST} mkdir mad
 rsync -zre ssh remote/ ${METRON_HOST}:mad/
-ssh ${METRON_HOST} mad/bootstrap.sh 
+ssh ${METRON_HOST} -t mad/bootstrap.sh 
 
 # do a run for Fun
 curl -u admin:admin ${REST_URL}/api/v1/storm/parser/start/mad
