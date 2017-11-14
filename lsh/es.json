@@ -15,6 +15,7 @@
         {
           "threat_triage_reason": {
             "mapping": {
+              "index": "not_analyzed",
               "type": "string"
             },
             "match": "threat.triage.rules:*:reason",
@@ -24,6 +25,7 @@
         {
           "threat_triage_name": {
             "mapping": {
+              "index": "not_analyzed",
               "type": "string"
             },
             "match": "threat.triage.rules:*:name",
@@ -123,12 +125,15 @@
           "type": "boolean"
         },
         "compCS": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "data": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "dst_ip": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "dst_port": {
@@ -138,79 +143,100 @@
           "type": "double"
         },
         "encCS": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "eventid": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "guid": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "input": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "isError": {
           "type": "long"
         },
         "is_alert": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "kexAlgs": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "keyAlgs": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "macCS": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "message": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "original_string": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "password": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "sensor": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "session": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "similarity_bin": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "size": {
           "type": "long"
         },
         "source:type": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "src_ip": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "src_port": {
           "type": "long"
         },
         "system": {
+          "index": "not_analyzed",
           "type": "string"
-        },        
+        },
         "timestamp": {
           "format": "epoch_millis",
           "type": "date"
         },
         "tlsh": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "ttylog": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "username": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "version": {
+          "index": "not_analyzed",
           "type": "string"
         },
         "alert": {

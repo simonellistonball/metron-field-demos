@@ -147,10 +147,12 @@
           "type": "string"
         },
         "ip_dst_addr": {
-          "type": "ip"
+          "index": "not_analyzed",
+          "type": "string"
         },
         "ip_src_addr": {
-          "type": "ip"
+          "index": "not_analyzed",
+          "type": "string"
         },
         "is_regular_user": {
           "type": "boolean"
