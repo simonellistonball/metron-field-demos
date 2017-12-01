@@ -31,7 +31,6 @@ fi
 source /etc/default/metron
 
 export CLASSNAME="com.hortonworks.metron.loader.csv.DemoLoader"
-export DM_JAR=metron-data-management-$METRON_VERSION.jar
 
-CP="$METRON_HOME/lib/$DM_JAR:$HOME/auth/demo-loader-$METRON_VERSION.jar"
+CP="${HOME}/auth/demo-loader-0.4.2-uber.jar"
 java $METRON_JVMFLAGS -cp $CP $CLASSNAME "$@"

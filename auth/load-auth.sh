@@ -14,7 +14,7 @@ curl -X POST -u admin:admin -d@kafka.json -H 'Content-Type: application/json' $R
 
 
 pushd demo_loader 
-mvn clean package -T2C && cp target/*.jar ../remote/
+mvn clean assembly -T2C && cp target/demo-loader-*-uber.jar ../remote/
 popd
 
 # create the patch for the profiler config 
