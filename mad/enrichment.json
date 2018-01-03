@@ -4,7 +4,7 @@
       "stellar": {
         "config": {
           "parser_score": "OUTLIER_MAD_SCORE(OUTLIER_MAD_STATE_MERGE(PROFILE_GET( 'sketchy_mad', 'global', PROFILE_FIXED(10, 'MINUTES')) ), value)",
-          "is_alert": "is_alert || parser_score > 2.5"
+          "is_alert": "parser_score > 2.5"
         }
       }
     },

@@ -10,7 +10,7 @@ def get_ip(base):
   return base + '.' + str(random.randint(1,255)) + '.' + str(random.randint(1, 255))
 
 def main():
-  freq_s = 1
+  freq_s = 60
   while True:
     user='user' + str(random.randint(1,len(domains)))
     epoch_time = int(time.time()) * 1000

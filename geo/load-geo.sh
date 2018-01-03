@@ -16,10 +16,11 @@ curl -X POST -u admin:admin -d@kafka.json -H 'Content-Type: application/json' $R
 cat profiler.json | python ../profiler_patch.py > remote/profiler_patch.json
 
 echo "\nUpload sample data"
-ssh ${METRON_HOST} mkdir geohash
+ssh -t ${METRON_HOST} mkdir geohash
 rsync -zre ssh remote/ ${METRON_HOST}:geohash/
+ssh -t ${METRON_HOST} '~/geohash/bootstrap.sh'
 
 # do a run for Fun
 echo "\nStarting parser"
 curl -u admin:admin ${REST_URL}/api/v1/storm/parser/start/geohash 
-ssh ${METRON_HOST} '~/geohash/load_data.sh'
+#ssh -t ${METRON_HOST} '~/geohash/load_data.sh'

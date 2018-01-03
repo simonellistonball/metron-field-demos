@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ssh ${METRON_HOST} '~/auth/run.sh'
+ssh -t ${METRON_HOST} '~/auth/run.sh'

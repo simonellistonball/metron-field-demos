@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ssh ${METRON_HOST} '~/geohash/poison.sh'
+ssh -t ${METRON_HOST} '~/geohash/poison.sh'

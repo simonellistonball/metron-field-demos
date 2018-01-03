@@ -13,14 +13,14 @@ echo "Setup kafka"
 curl -X POST -u admin:admin -d@kafka.json -H 'Content-Type: application/json' $REST_URL/api/v1/kafka/topic
 
 echo "\nUpload sample data"
-ssh ${METRON_HOST} mkdir lsh
+ssh -t ${METRON_HOST} mkdir lsh
 rsync -zre ssh remote/ ${METRON_HOST}:lsh/
-ssh ${METRON_HOST} 'cd lsh; tar zxf *.tar.gz'
+ssh -t ${METRON_HOST} 'cd lsh; tar zxf *.tar.gz'
 
 echo "\nLoad the threat intel data"
-ssh ${METRON_HOST} '/usr/hcp/current/metron/bin/flatfile_loader.sh -i ~/lsh/blacklist.csv -t threatintel -c t -e ~/lsh/blacklist.extractor.json'
+ssh -t ${METRON_HOST} '/usr/hcp/current/metron/bin/flatfile_loader.sh -i ~/lsh/blacklist.csv -t threatintel -c t -e ~/lsh/blacklist.extractor.json'
 
 # do a run for Fun
 echo "\Start the parser"
 curl -u admin:admin ${REST_URL}/api/v1/storm/parser/start/cowrie 
-ssh ${METRON_HOST} '~/lsh/load_data.sh'
+ssh -t ${METRON_HOST} '~/lsh/load_data.sh'

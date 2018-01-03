@@ -9,5 +9,5 @@ def make_op(p):
         'value': p
     }
 
-patch = map(make_op, new_profiles['profiles'])
+patch = list(map(make_op, new_profiles['profiles']))
 print(json.dumps(patch))
