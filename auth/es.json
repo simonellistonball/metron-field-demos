@@ -15,7 +15,7 @@
         {
           "threat_triage_reason": {
             "mapping": {
-              "type": "string"
+              "type": "text"
             },
             "match": "threat.triage.rules:*:reason",
             "match_mapping_type": "*"
@@ -24,7 +24,7 @@
         {
           "threat_triage_name": {
             "mapping": {
-              "type": "string"
+              "type": "text"
             },
             "match": "threat.triage.rules:*:name",
             "match_mapping_type": "*"
@@ -42,8 +42,8 @@
         {
           "geo_country": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "index": true,
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:country"
@@ -52,8 +52,8 @@
         {
           "geo_city": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "index": true,
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:city"
@@ -62,8 +62,8 @@
         {
           "geo_location_id": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "index": true,
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:locID"
@@ -72,8 +72,8 @@
         {
           "geo_dma_code": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "index": true,
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:dmaCode"
@@ -82,8 +82,8 @@
         {
           "geo_postal_code": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "index": true,
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:postalCode"
@@ -120,39 +120,39 @@
       ],
       "properties": {
         "auth_orientation": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "auth_type": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "dest_user": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "distinct_auth_attempts_alert": {
           "type": "boolean"
         },
         "guid": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "ip_dst_host": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "ip_src_host": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "ip_dst_addr": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "ip_src_addr": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "is_regular_user": {
           "type": "boolean"
@@ -161,25 +161,25 @@
           "type": "boolean"
         },
         "logon_type": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "num_alerts_previous": {
           "type": "long"
         },
         "original_string": {
-          "type": "string"
+          "type": "text"
         },
         "source:type": {
-          "type": "string"
+          "type": "text"
         },
         "source_file": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "source_user": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "success": {
           "type": "boolean"
@@ -192,8 +192,8 @@
           "type": "date"
         },
         "user": {
-          "index": "not_analyzed",
-          "type": "string"
+          "index": true,
+          "type": "keyword"
         },
         "alert": {
           "type": "nested"
