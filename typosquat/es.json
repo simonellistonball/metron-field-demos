@@ -1,0 +1,99 @@
+{
+  "template": "squid_index*",
+  "mappings": {
+    "squid_doc": {
+      "dynamic_templates": [
+        {
+          "timestamps": {
+            "match": "*:ts",
+            "match_mapping_type": "*",
+            "mapping": {
+              "type": "date",
+              "format": "epoch_millis"
+            }
+          }
+        },
+        {
+          "threat_triage_score": {
+            "mapping": {
+              "type": "float"
+            },
+            "match": "threat:triage:*score",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "threat_triage_reason": {
+            "mapping": {
+              "type": "text",
+              "fielddata": "true"
+            },
+            "match": "threat:triage:rules:*:reason",
+            "match_mapping_type": "*"
+          }
+        }
+      ],
+      "properties": {
+        "action": {
+          "type": "text",
+          "fielddata": true
+        },
+        "bytes": {
+          "type": "long"
+        },
+        "code": {
+          "type": "long"
+        },
+        "domain_without_subdomains": {
+          "type": "text",
+          "fielddata": true
+        },
+        "elapsed": {
+          "type": "long"
+        },
+        "full_hostname": {
+          "type": "text",
+          "fielddata": true
+        },
+        "guid": {
+          "type": "keyword"
+        },
+        "ip_dst_addr": {
+          "type": "ip"
+        },
+        "ip_src_addr": {
+          "type": "ip"
+        },
+        "is_alert": {
+          "type": "text",
+          "fielddata": true
+        },
+        "is_potential_typosquat": {
+          "type": "boolean"
+        },
+        "method": {
+          "type": "text",
+          "fielddata": true
+        },
+        "original_text": {
+          "type": "text",
+          "fielddata": true
+        },
+        "source:type": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date",
+          "format": "epoch_millis"
+        },
+        "url": {
+          "type": "text",
+          "fielddata": true
+        },
+        "alert": {
+          "type": "nested"
+        }
+      }
+    }
+  }
+}
