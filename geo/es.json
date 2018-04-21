@@ -127,6 +127,9 @@
           "index": "not_analyzed",
           "type": "string"
         },
+        "ip_src_addr": {
+          "type": "ip"
+        },
         "alert": { "type": "nested" },
         "dist_sd": { "type": "float" },
         "dist_median": { "type": "float" },
