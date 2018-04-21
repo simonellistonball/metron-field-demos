@@ -75,6 +75,12 @@ def do_http(extra, user):
         })
     return extra 
 
+def insert_urls(body):
+    words = body.split(" ")
+    for i in np.random.randint(1, len(words),size=4):
+        words[i] = words[i] + " " + fake.uri()
+    return " ".join(words)
+
 def do_email(extra, user): 
     a = user['email']
     b = fake.email() if np.random.random() < 0.8 else fake.free_email()
@@ -84,7 +90,7 @@ def do_email(extra, user):
         'from': a if r else b,
         'to': b if r else a,
         'subject': fake.sentences(nb = 1),
-        'body': "\n".join(fake.paragraphs(nb=np.random.randint(5, 20), ext_word_list=None))
+        'body': insert_urls("\r\n".join(fake.paragraphs(nb=np.random.randint(5, 20), ext_word_list=None)))
         })
     return extra 
 
