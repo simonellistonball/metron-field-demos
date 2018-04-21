@@ -3,6 +3,8 @@
 # setup metron bits - parser is already out of the box
 upload() {
   topic=$1
+  echo "\nSetting up Parser (${topic})"
+  curl -X POST -u admin:admin -d@${topic}/parser.json -H 'Content-Type: application/json' $REST_URL/api/v1/sensor/parser/config/${topic}
   echo "\nSetting up Enrichment (${topic})"
   curl -X POST -u admin:admin -d@${topic}/enrichment.json -H 'Content-Type: application/json' $REST_URL/api/v1/sensor/enrichment/config/${topic}
   echo "\nSetting up Indexing (${topic})"

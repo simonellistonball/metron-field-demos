@@ -16,8 +16,9 @@ $METRON_HOME/bin/zk_load_configs.sh -z $ZOOKEEPER -m PATCH -c PROFILER -pf ~/geo
 sudo yum install python34 python34-setuptools
 sudo easy_install-3.4 pip
 
-pip install virtualenv
+sudo pip install virtualenv
 
+cd ~/workday 
 virtualenv --python=/usr/bin/python3.4 workday-venv
 source workday-venv/bin/activate
 

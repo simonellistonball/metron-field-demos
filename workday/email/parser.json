@@ -1,13 +1,6 @@
 {
   "parserConfig": {},
-  "fieldTransformations": [
-    {
-      "input": [],
-      "output": [],
-      "transformation": "STELLAR",
-      "config": {}
-    }
-  ],
+  "fieldTransformations": [],
   "sensorTopic": "email",
   "parserClassName": "org.apache.metron.parsers.json.JSONMapParser"
 }

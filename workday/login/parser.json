@@ -1,13 +1,6 @@
 {
   "parserConfig": {},
-  "fieldTransformations": [
-    {
-      "input": [],
-      "output": [],
-      "transformation": "STELLAR",
-      "config": {}
-    }
-  ],
+  "fieldTransformations": [],
   "sensorTopic": "login",
   "parserClassName": "org.apache.metron.parsers.json.JSONMapParser"
 }
