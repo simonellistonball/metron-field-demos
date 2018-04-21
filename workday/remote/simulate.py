@@ -99,7 +99,7 @@ def do_auth(extra, user):
     extra.update({
         'topic': 'auth',
         'ip_dst_addr': fake.ipv4(network=False, address_class="c", private=True),
-        'ip_src_addr': user['ip'],
+        'ip_src_addr': user['workstation_ip'],
         'action': 'Login',
         'result': ('success' if np.random.random() < 0.90 else 'failed')
         })
@@ -121,7 +121,7 @@ def make_users(type):
         "email": username + "@hortonworks.com",
         "department": department,
         "user_type": type,
-        "ip": fake.ipv4(network=False, address_class="c", private=True),
+        "workstation_ip": fake.ipv4(network=False, address_class="c", private=True),
         "user_agent": fake.user_agent(),
         "job": fake.job()
     }
@@ -178,6 +178,10 @@ args = parser.parse_args()
 
 if (args.bootstrap_servers):
     producer = KafkaProducer(bootstrap_servers=args.bootstrap_servers, value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+    
+    # send all the users as a streaming enrichment
+    for u in users: 
+        producer.send('users', u)
 
 def ticker():
     for a in filter(non_none, [tick(datetime.now()) for i in range(1,10)]):

@@ -1,0 +1,11 @@
+{
+  "parserConfig": {},
+  "fieldTransformations": [],
+  "sensorTopic": "users",
+  "parserClassName": "org.apache.metron.parsers.json.JSONMapParser",
+  "writerClassName" : "org.apache.metron.enrichment.writer.SimpleHbaseEnrichmentWriter",
+  "shew.table" : "enrichment",
+  "shew.cf" : "t",
+  "shew.keyColumns" : "user",
+  "shew.enrichmentType" : "users"
+}

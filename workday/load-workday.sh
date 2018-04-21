@@ -28,3 +28,8 @@ ssh -t ${METRON_HOST} -t workday/bootstrap.sh
 upload email
 upload web
 upload login
+
+echo "\nSetting up Parser (users)"
+curl -X POST -u admin:admin -d@users/parser.json -H 'Content-Type: application/json' $REST_URL/api/v1/sensor/parser/config/users
+echo "Setup kafka (users)"
+curl -X POST -u admin:admin -d@users/kafka.json -H 'Content-Type: application/json' $REST_URL/api/v1/kafka/topic
