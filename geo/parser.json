@@ -15,7 +15,7 @@
         "hash"
       ],
       "config": {
-        "hash": "GEOHASH_FROM_LOC(GEO_GET(ip))"
+        "hash": "GEOHASH_FROM_LOC(GEO_GET(ip_src_addr))"
       }
     }
   ]
