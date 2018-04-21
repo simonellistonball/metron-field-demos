@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "users",
-=======
-  "name": "email",
->>>>>>> 5a249d79841ad1979397a117f8de0914eaefb505
   "numPartitions": 1,
   "properties": {},
   "replicationFactor": 1
