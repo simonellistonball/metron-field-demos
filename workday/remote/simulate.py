@@ -49,7 +49,7 @@ def do_upload(extra, user):
     extra.update({
         'topic': 'http',
         'ip_dst_addr': fake.ipv4_public(),
-        'ip_src_addr': user['ip'],
+        'ip_src_addr': user['workstation_ip'],
         'ip_src_port': fake.random_int(1025, 60000), #fake.random.nextInt(1024,65500),
         'ip_dst_port': 80,
         'url': fake.uri(),
@@ -65,7 +65,7 @@ def do_http(extra, user):
     extra.update({
         'topic': 'http',
         'ip_dst_addr': fake.ipv4_public(),
-        'ip_src_addr': user['ip'],
+        'ip_src_addr': user['workstation_ip'],
         'ip_src_port': fake.random_int(1025, 60000), #fake.random.nextInt(1024,65500),
         'ip_dst_port': 80,
         'url': fake.uri(),
