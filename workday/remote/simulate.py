@@ -99,7 +99,7 @@ def do_auth(extra, user):
     extra.update({
         'topic': 'auth',
         'ip_dst_addr': fake.ipv4(network=False, address_class="c", private=True),
-        'ip_src_addr': user['ip'],
+        'ip_src_addr': user['workstation_ip'],
         'action': 'Login',
         'result': ('success' if np.random.random() < 0.90 else 'failed')
         })
@@ -121,9 +121,9 @@ def make_users(type):
         "email": username + "@hortonworks.com",
         "department": department,
         "user_type": type,
-        "ip": fake.ipv4(network=False, address_class="c", private=True),
+        "workstation_ip": fake.ipv4(network=False, address_class="c", private=True),
         "user_agent": fake.user_agent(),
-        "job": fake.job()
+        "job": fake.job() if type['profile'] != "system" else "system account",
     }
 
 def random_user_type(bias):
@@ -176,9 +176,25 @@ parser.add_argument('-k', '--bootstrap-servers', type=str, help='Kafka servers')
 parser.add_argument('-i', '--interval', type=float, help='Tick interval')
 args = parser.parse_args()
 
+def sendable_user(u):
+    su = {}
+    for k, v in u.items():
+        if (k in ['username', 'job', 'department', 'workstation_ip', 'email']):
+            su[k] = v
+    su['workdays'] = list(u['user_type']['workdays'])
+    su['hours'] = list(map(lambda d: d.strftime("%H:%m"),u['user_type']['hours']))
+    su['profile'] = u['user_type']['profile']
+    return su 
+    
 if (args.bootstrap_servers):
     producer = KafkaProducer(bootstrap_servers=args.bootstrap_servers, value_serializer=lambda v: json.dumps(v).encode('utf-8'))
-
+    # send all the users as a streaming enrichment
+    for u in users: 
+        producer.send('users',sendable_user(u))
+else:
+    for u in users: 
+        print(json.dumps(sendable_user(u)))
+        
 def ticker():
     for a in filter(non_none, [tick(datetime.now()) for i in range(1,10)]):
         for m in a:
