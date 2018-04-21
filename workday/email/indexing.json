@@ -1,0 +1,17 @@
+{
+  "hdfs": {
+    "batchSize": 1,
+    "enabled": true,
+    "index": "email"
+  },
+  "elasticsearch": {
+    "batchSize": 1,
+    "enabled": true,
+    "index": "email"
+  },
+  "solr": {
+    "batchSize": 1,
+    "enabled": true,
+    "index": "email"
+  }
+}

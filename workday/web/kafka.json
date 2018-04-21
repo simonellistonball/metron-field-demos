@@ -1,0 +1,6 @@
+{
+  "name": "web",
+  "numPartitions": 1,
+  "properties": {},
+  "replicationFactor": 1
+}

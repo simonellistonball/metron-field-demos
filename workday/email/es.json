@@ -1,0 +1,156 @@
+{
+  "template": "email_index*",
+  "mappings": {
+    "email_doc": {
+      "dynamic_templates": [
+        {
+          "threat_triage_score": {
+            "mapping": {
+              "type": "float"
+            },
+            "match": "threat.triage.rules:*:score",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "threat_triage_reason": {
+            "mapping": {
+              "type": "string"
+            },
+            "match": "threat.triage.rules:*:reason",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "threat_triage_name": {
+            "mapping": {
+              "type": "string"
+            },
+            "match": "threat.triage.rules:*:name",
+            "match_mapping_type": "*"
+          }
+        },
+        {
+          "geo_location_point": {
+            "mapping": {
+              "type": "geo_point"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:location_point"
+          }
+        },
+        {
+          "geo_country": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:country"
+          }
+        },
+        {
+          "geo_city": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:city"
+          }
+        },
+        {
+          "geo_location_id": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:locID"
+          }
+        },
+        {
+          "geo_dma_code": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:dmaCode"
+          }
+        },
+        {
+          "geo_postal_code": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:postalCode"
+          }
+        },
+        {
+          "geo_latitude": {
+            "mapping": {
+              "type": "float"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:latitude"
+          }
+        },
+        {
+          "geo_longitude": {
+            "mapping": {
+              "type": "float"
+            },
+            "match_mapping_type": "*",
+            "match": "enrichments:geo:*:longitude"
+          }
+        },
+        {
+          "timestamps": {
+            "mapping": {
+              "format": "epoch_millis",
+              "type": "date"
+            },
+            "match_mapping_type": "*",
+            "match": "*:ts"
+          }
+        }
+      ],
+      "properties": {
+        "original_text": {
+          "type": "text",
+          "fielddata": true
+        },
+        "source:type": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date",
+          "format": "epoch_millis"
+        },
+        "alert": {
+          "type": "nested"
+        },
+        
+        "body": {
+          "index": true,
+          "type": "text"
+        },
+        "subject": {
+          "index": true,
+          "type": "text"
+        },
+        "from": {
+          "index": true,
+          "type": "keyword"
+        },
+        "to": {
+          "index": true,
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

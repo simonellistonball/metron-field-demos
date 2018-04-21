@@ -1,0 +1,22 @@
+{
+  "enrichment": {
+    "fieldMap": {
+      "stellar" : {
+        "config" : []
+      }
+   }
+  ,"fieldToTypeMap": { }
+  },
+  "threatIntel": {
+    "fieldMap": {
+      "stellar" : {
+        "config" : []
+      }
+    },
+    "fieldToTypeMap": { },
+    "triageConfig" : {
+      "riskLevelRules" : [],
+      "aggregator" : "MAX"
+    }
+  }
+}

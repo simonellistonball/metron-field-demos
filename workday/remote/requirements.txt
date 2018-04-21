@@ -1,0 +1,7 @@
+Faker==0.8.13
+kafka-python==1.4.2
+numpy==1.14.2
+python-dateutil==2.7.2
+schedule==0.5.0
+six==1.11.0
+text-unidecode==1.2
