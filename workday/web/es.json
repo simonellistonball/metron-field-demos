@@ -136,7 +136,7 @@
         
         "ip_src_addr": {
           "index": true,
-          "type": "keyword"
+          "type": "ip"
         },
         "ip_src_port": {
           "index": true,
@@ -144,7 +144,7 @@
         },
         "ip_dst_addr": {
           "index": true,
-          "type": "keyword"
+          "type": "ip"
         },
         "ip_dst_port": {
           "index": true,

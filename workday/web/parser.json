@@ -1,6 +1,15 @@
 {
   "parserConfig": {},
-  "fieldTransformations": [],
+  "fieldTransformations": [{
+			"input": [
+				"topic"
+			],
+			"output": [
+				"topic"
+			],
+			"transformation": "REMOVE",
+			"config": {}
+		}],
   "sensorTopic": "web",
   "parserClassName": "org.apache.metron.parsers.json.JSONMapParser"
 }

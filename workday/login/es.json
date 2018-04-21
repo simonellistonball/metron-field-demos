@@ -136,11 +136,11 @@
 
         "ip_src_addr": {
           "index": true,
-          "type": "keyword"
+          "type": "ip"
         },
         "ip_dst_addr": {
           "index": true,
-          "type": "keyword"
+          "type": "ip"
         },
         "action": {
           "index": true,
