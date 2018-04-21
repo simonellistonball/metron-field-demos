@@ -17,3 +17,5 @@ export METRON_HOST=<my-metron-host>
 export ES_URL=http://<elastic-master>:9200
 export REST_URL=http://${METRON_HOST}:8082
 ```
+
+Note that the setup-full-dev.sh script is included as a convenience to set these environment variables appropriately for running the metron dev single node.
