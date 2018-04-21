@@ -1,24 +1,14 @@
 {
-<<<<<<< HEAD
-  "parserConfig": {
-    "shew.table" : "enrichment",
-    "shew.cf" : "t",
-    "shew.keyColumns" : "user",
-    "shew.enrichmentType" : "users"
-  },
-  "fieldTransformations": [],
-  "sensorTopic": "users",
-  "parserClassName": "org.apache.metron.parsers.json.JSONMapParser",
-  "writerClassName" : "org.apache.metron.enrichment.writer.SimpleHbaseEnrichmentWriter"
-=======
-  "parserConfig": {},
-  "fieldTransformations": [],
-  "sensorTopic": "users",
-  "parserClassName": "org.apache.metron.parsers.json.JSONMapParser",
-  "writerClassName" : "org.apache.metron.enrichment.writer.SimpleHbaseEnrichmentWriter",
-  "shew.table" : "enrichment",
-  "shew.cf" : "t",
-  "shew.keyColumns" : "user",
-  "shew.enrichmentType" : "users"
->>>>>>> 5a249d79841ad1979397a117f8de0914eaefb505
+	"parserClassName": "org.apache.metron.parsers.json.JSONMapParser",
+	"sensorTopic": "users",
+	"writerClassName": "org.apache.metron.enrichment.writer.SimpleHbaseEnrichmentWriter",
+	"parserConfig": {
+		"shew.table": "enrichment",
+		"shew.cf": "t",
+		"shew.keyColumns": "username",
+		"shew.enrichmentType": "users",
+		"shew.valueColumns": null,
+		"shew.keyDelim": "-"
+	},
+	"fieldTransformations": []
 }
