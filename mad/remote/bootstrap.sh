@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -a 
 source /etc/default/metron 
 
 sudo yum install -y epel-release

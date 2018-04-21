@@ -2,7 +2,7 @@
 
 # setup metron bits
 echo "Setting up Parser"
-curl -X POST -u admin:admin -d@parser.json -H 'Content-Type: application/json' $REST_URL/api/v1/sensor/parser/config 
+curl -X POST -u admin:admin -d@parser.json -H 'Content-Type: application/json' $REST_URL/api/v1/sensor/parser/config/mad 
 echo "\nSetting up Enrichment"
 curl -X POST -u admin:admin -d@enrichment.json -H 'Content-Type: application/json' $REST_URL/api/v1/sensor/enrichment/config/mad
 echo "\nSetting up Indexing"
