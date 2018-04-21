@@ -4,7 +4,7 @@
   "parserConfig": {
     "columns": {
       "user": 0,
-      "ip": 1,
+      "ip_src_addr": 1,
       "timestamp": 2
     }
   },
