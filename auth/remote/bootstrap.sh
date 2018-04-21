@@ -1,4 +1,5 @@
 #!/bin/sh
+set -a 
 source /etc/default/metron
 
 sudo $METRON_HOME/bin/zk_load_configs.sh -m PULL -o ${METRON_HOME}/config/zookeeper/ -f 
