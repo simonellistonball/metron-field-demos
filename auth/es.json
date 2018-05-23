@@ -120,38 +120,30 @@
       ],
       "properties": {
         "auth_orientation": {
-          "index": true,
           "type": "keyword"
         },
         "auth_type": {
-          "index": true,
           "type": "keyword"
         },
         "dest_user": {
-          "index": true,
           "type": "keyword"
         },
         "distinct_auth_attempts_alert": {
           "type": "boolean"
         },
         "guid": {
-          "index": true,
           "type": "keyword"
         },
         "ip_dst_host": {
-          "index": true,
           "type": "keyword"
         },
         "ip_src_host": {
-          "index": true,
           "type": "keyword"
         },
         "ip_dst_addr": {
-          "index": true,
           "type": "keyword"
         },
         "ip_src_addr": {
-          "index": true,
           "type": "keyword"
         },
         "is_regular_user": {
@@ -161,7 +153,6 @@
           "type": "boolean"
         },
         "logon_type": {
-          "index": true,
           "type": "keyword"
         },
         "num_alerts_previous": {
@@ -171,15 +162,12 @@
           "type": "text"
         },
         "source:type": {
-          "index": true,
           "type": "keyword"
         },
         "source_file": {
-          "index": true,
           "type": "keyword"
         },
         "source_user": {
-          "index": true,
           "type": "keyword"
         },
         "success": {
@@ -193,7 +181,6 @@
           "type": "date"
         },
         "user": {
-          "index": true,
           "type": "keyword"
         },
         "alert": {
