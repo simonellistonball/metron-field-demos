@@ -171,7 +171,8 @@
           "type": "text"
         },
         "source:type": {
-          "type": "text"
+          "index": true,
+          "type": "keyword"
         },
         "source_file": {
           "index": true,
