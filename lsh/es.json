@@ -15,8 +15,7 @@
         {
           "threat_triage_reason": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match": "threat.triage.rules:*:reason",
             "match_mapping_type": "*"
@@ -25,8 +24,7 @@
         {
           "threat_triage_name": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match": "threat.triage.rules:*:name",
             "match_mapping_type": "*"
@@ -44,8 +42,7 @@
         {
           "geo_country": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:country"
@@ -54,8 +51,7 @@
         {
           "geo_city": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:city"
@@ -64,8 +60,7 @@
         {
           "geo_location_id": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:locID"
@@ -74,8 +69,7 @@
         {
           "geo_dma_code": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:dmaCode"
@@ -84,8 +78,7 @@
         {
           "geo_postal_code": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:postalCode"
@@ -125,119 +118,98 @@
           "type": "boolean"
         },
         "compCS": {
-          "index": "not_analyzed",
-          "type": "string"
+
+          "type": "keyword"
         },
         "data": {
-          "index": "not_analyzed",
-          "type": "string"
+
+          "type": "keyword"
         },
-        "dst_ip": {
-          "index": "not_analyzed",
-          "type": "string"
+        "ip_dst_addr": {
+
+          "type": "ip"
         },
-        "dst_port": {
+        "ip_dst_port": {
           "type": "long"
         },
         "duration": {
           "type": "double"
         },
         "encCS": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "eventid": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "guid": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "input": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "isError": {
           "type": "long"
         },
         "is_alert": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "kexAlgs": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "keyAlgs": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "macCS": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "message": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
-        "original_string": {
-          "index": "not_analyzed",
-          "type": "string"
+        "original_keyword": {
+          "type": "keyword"
         },
         "password": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "sensor": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "session": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "similarity_bin": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "size": {
           "type": "long"
         },
         "source:type": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
-        "src_ip": {
-          "index": "not_analyzed",
-          "type": "string"
+        "ip_src_addr": {
+          "type": "ip"
         },
-        "src_port": {
+        "ip_src_port": {
           "type": "long"
         },
         "system": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "timestamp": {
           "format": "epoch_millis",
           "type": "date"
         },
         "tlsh": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "ttylog": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "username": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "version": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "alert": {
           "type": "nested"

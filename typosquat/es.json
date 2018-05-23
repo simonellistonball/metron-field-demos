@@ -35,8 +35,7 @@
       ],
       "properties": {
         "action": {
-          "type": "text",
-          "fielddata": true
+          "type": "keyword"
         },
         "bytes": {
           "type": "long"
@@ -45,15 +44,13 @@
           "type": "long"
         },
         "domain_without_subdomains": {
-          "type": "text",
-          "fielddata": true
+          "type": "keyword"
         },
         "elapsed": {
           "type": "long"
         },
         "full_hostname": {
-          "type": "text",
-          "fielddata": true
+          "type": "keyword"
         },
         "guid": {
           "type": "keyword"
@@ -65,19 +62,16 @@
           "type": "ip"
         },
         "is_alert": {
-          "type": "text",
-          "fielddata": true
+          "type": "keyword"
         },
         "is_potential_typosquat": {
           "type": "boolean"
         },
         "method": {
-          "type": "text",
-          "fielddata": true
+          "type": "keyword"
         },
         "original_text": {
-          "type": "text",
-          "fielddata": true
+          "type": "text"
         },
         "source:type": {
           "type": "keyword"
@@ -87,8 +81,7 @@
           "format": "epoch_millis"
         },
         "url": {
-          "type": "text",
-          "fielddata": true
+          "type": "keyword"
         },
         "alert": {
           "type": "nested"

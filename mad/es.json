@@ -15,7 +15,7 @@
         {
           "threat_triage_reason": {
             "mapping": {
-              "type": "string"
+              "type": "keyword"
             },
             "match": "threat.triage.rules:*:reason",
             "match_mapping_type": "*"
@@ -24,7 +24,7 @@
         {
           "threat_triage_name": {
             "mapping": {
-              "type": "string"
+              "type": "keyword"
             },
             "match": "threat.triage.rules:*:name",
             "match_mapping_type": "*"
@@ -42,8 +42,7 @@
         {
           "geo_country": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:country"
@@ -52,8 +51,7 @@
         {
           "geo_city": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:city"
@@ -62,8 +60,7 @@
         {
           "geo_location_id": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:locID"
@@ -72,8 +69,7 @@
         {
           "geo_dma_code": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:dmaCode"
@@ -82,8 +78,7 @@
         {
           "geo_postal_code": {
             "mapping": {
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "keyword"
             },
             "match_mapping_type": "*",
             "match": "enrichments:geo:*:postalCode"
@@ -120,8 +115,7 @@
       ],
       "properties": {
         "source:type": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "timestamp": {
           "format": "epoch_millis",
@@ -131,8 +125,7 @@
           "type": "float"
         },
         "value_str": {
-          "index": "not_analyzed",
-          "type": "string"
+          "type": "keyword"
         },
         "alert": {
           "type": "nested"
