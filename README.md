@@ -19,3 +19,8 @@ export REST_URL=http://${METRON_HOST}:8082
 ```
 
 Note that the setup-full-dev.sh script is included as a convenience to set these environment variables appropriately for running the metron dev single node.
+
+
+# Recordings
+
+A number of these use cases are demonstrated in these [videos](https://www.youtube.com/playlist?list=PLlBipao4GwMLs3CS3pqiAOE2y-HEkL10F).
