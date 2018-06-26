@@ -1,7 +1,7 @@
 #!/bin/sh
 source /etc/default/metron
 
-sudo $METRON_HOME/bin/zk_load_configs.sh -m PULL -o ${METRON_HOME}/config/zookeeper/ -f 
+sudo $METRON_HOME/bin/zk_load_configs.sh -z $ZOOKEEPER -m PULL -o ${METRON_HOME}/config/zookeeper/ -f 
 
 if [ ! -f ${METRON_HOME}/config/zookeeper/profiler.json ] 
 then 
